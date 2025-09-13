@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+/* XTerm.js styles */
+@import '@xterm/xterm/css/xterm.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar styles for VS Code appearance */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #424242;
+  border-radius: 0;
+  border: 3px solid #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4f4f4f;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1e1e1e;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #1e1e1e;
+}
+
+/* Monaco Editor loading state */
+.monaco-editor-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #1e1e1e;
+  color: #cccccc;
+}
+
+/* Panel resize handle styles */
+.react-resizable-handle {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  cursor: col-resize;
+}
+
+.react-resizable-handle-se {
+  cursor: se-resize;
+}
+
+.react-resizable-handle-n,
+.react-resizable-handle-s {
+  cursor: row-resize;
+}
+
+/* Activity bar icons hover effect */
+.activity-bar-item {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.activity-bar-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #007acc;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.activity-bar-item.active::before {
+  transform: scaleY(1);
+}
+
+/* File tree animations */
+.file-tree-item {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.file-tree-item:hover {
+  background-color: #2a2d2e;
+}
+
+/* Tab close button animation */
+.tab-close-button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.tab:hover .tab-close-button {
+  opacity: 1;
+}
+
+/* Command palette animations */
+.command-palette-overlay {
+  animation: fadeIn 0.2s ease;
+}
+
+.command-palette-content {
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Slide in animation for notifications */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Status bar pulse animation */
+.status-bar-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Terminal cursor blink */
+.xterm .xterm-cursor {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Context menu animations */
+.context-menu {
+  animation: contextMenuSlide 0.15s ease;
+}
+
+@keyframes contextMenuSlide {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Enhanced focus and hover effects */
+.enhanced-hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enhanced-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Glassmorphism effect */
+.glass-effect {
+  background: rgba(45, 45, 48, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #007acc, #73c991);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Syntax highlighting improvements */
+.monaco-editor .view-lines .view-line span.mtk1 { color: #d4d4d4; }
+.monaco-editor .view-lines .view-line span.mtk2 { color: #569cd6; }
+.monaco-editor .view-lines .view-line span.mtk3 { color: #6a9955; }
+.monaco-editor .view-lines .view-line span.mtk4 { color: #ce9178; }
+.monaco-editor .view-lines .view-line span.mtk5 { color: #dcdcaa; }
+.monaco-editor .view-lines .view-line span.mtk6 { color: #4ec9b0; }
+.monaco-editor .view-lines .view-line span.mtk7 { color: #9cdcfe; }
+.monaco-editor .view-lines .view-line span.mtk8 { color: #f44747; }
+.monaco-editor .view-lines .view-line span.mtk9 { color: #ff8c00; }
+.monaco-editor .view-lines .view-line span.mtk10 { color: #c586c0; }
+
+/* Advanced animations */
+.bounce-in {
+  animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Collaborative cursors */
+.collaborative-cursor {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.collaborative-cursor::after {
+  content: attr(data-user);
+  position: absolute;
+  top: -25px;
+  left: 0;
+  background: inherit;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.collaborative-cursor:hover::after {
+  opacity: 1;
+}
+
+/* Selection highlighting */
+::selection {
+  background-color: #264f78;
+}
+
+/* Focus outline removal for custom elements */
+button:focus,
+input:focus,
+select:focus {
+  outline: none;
+}
+
+/* Custom focus styles */
+.focus-ring:focus {
+  box-shadow: 0 0 0 2px #007acc;
+}
