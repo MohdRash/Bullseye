@@ -310,7 +310,7 @@ const IntelligentSearch: React.FC = () => {
           <div className="space-y-1">
             <div><kbd className="bg-[#3c3c3c] px-1 rounded">@</kbd> Search symbols</div>
             <div><kbd className="bg-[#3c3c3c] px-1 rounded">#</kbd> Search files</div>
-            <div><kbd className="bg-[#3c3c3c] px-1 rounded">></kbd> Run commands</div>
+            <div><kbd className="bg-[#3c3c3c] px-1 rounded">{'>'}</kbd> Run commands</div>
             <div><kbd className="bg-[#3c3c3c] px-1 rounded">?</kbd> Search text</div>
           </div>
         </div>
