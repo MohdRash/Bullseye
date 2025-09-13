@@ -3,6 +3,11 @@ import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 import ActivityBar from './ActivityBar';
 import SidePanel from './SidePanel';
 import EditorArea from './EditorArea';
+import PerformanceMonitor from './PerformanceMonitor';
+import AdvancedCollaboration from './AdvancedCollaboration';
+import SmartCodeAnalyzer from './SmartCodeAnalyzer';
+import IntelligentSearch from './IntelligentSearch';
+import CodeSnippetManager from './CodeSnippetManager';
 import Terminal from './Terminal';
 import StatusBar from './StatusBar';
 import CommandPalette from './CommandPalette';
@@ -128,6 +133,9 @@ const IDE: React.FC = () => {
                     notifications={notifications}
                     onDismiss={(id) => setNotifications(prev => prev.filter(n => n.id !== id))}
                   />
+                  
+                  <PerformanceMonitor />
+                  <AdvancedCollaboration />
                   
                   <LiveShare />
                 </div>

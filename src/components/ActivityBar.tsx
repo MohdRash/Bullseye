@@ -1,15 +1,17 @@
 import React from 'react';
-import { Files, Search, Package, Settings, GitBranch, Bug, Bot, Users, Zap } from 'lucide-react';
+import { Files, Search, Package, Settings, GitBranch, Bug, Bot, Users, Zap, Bookmark, Shield, Sparkles } from 'lucide-react';
 
 interface ActivityBarProps {
-  activePanel: 'explorer' | 'search' | 'git' | 'debug' | 'extensions' | 'ai' | 'settings';
-  onPanelChange: (panel: 'explorer' | 'search' | 'git' | 'debug' | 'extensions' | 'ai' | 'settings') => void;
+  activePanel: 'explorer' | 'search' | 'git' | 'debug' | 'extensions' | 'ai' | 'settings' | 'snippets' | 'analyzer';
+  onPanelChange: (panel: 'explorer' | 'search' | 'git' | 'debug' | 'extensions' | 'ai' | 'settings' | 'snippets' | 'analyzer') => void;
 }
 
 const ActivityBar: React.FC<ActivityBarProps> = ({ activePanel, onPanelChange }) => {
   const buttons = [
     { id: 'explorer' as const, icon: Files, label: 'Explorer' },
-    { id: 'search' as const, icon: Search, label: 'Search' },
+    { id: 'search' as const, icon: Search, label: 'Intelligent Search' },
+    { id: 'snippets' as const, icon: Bookmark, label: 'Code Snippets' },
+    { id: 'analyzer' as const, icon: Shield, label: 'Code Analyzer' },
     { id: 'git' as const, icon: GitBranch, label: 'Source Control' },
     { id: 'debug' as const, icon: Bug, label: 'Run and Debug' },
     { id: 'extensions' as const, icon: Package, label: 'Extensions' },
@@ -38,7 +40,9 @@ const ActivityBar: React.FC<ActivityBarProps> = ({ activePanel, onPanelChange })
               </div>
             )}
             {id === 'ai' && (
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#00ff00] rounded-full animate-pulse" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#00ff00] rounded-full animate-pulse">
+                <Sparkles size={8} className="text-white" />
+              </div>
             )}
             <div className="absolute left-full ml-2 px-2 py-1 bg-[#1e1e1e] text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
               {label}
